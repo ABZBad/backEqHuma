@@ -12,7 +12,13 @@ class Prospect {
   }
 
   static async crear(nombre, precio) {
-    const { rows } = await db.query('INSERT INTO candidato (nombre, apellido) VALUES ($1, $2) RETURNING *', [nombre, primerapp]);
+    const { rows } = await db.query('INSERT INTO candidato ' +
+      '( id, nombre, apellido,' +
+      ' email, telefono, fecha_nacimiento, genero' +
+      ' )'
+      + 'VALUES ($1, $2,$3, $4, $5, $6 ,$7) RETURNING *'
+      , [id, nombre, primerapp, email, telefono, fechaNacimiento,
+        genero]);
     return rows[0];
   }
 
