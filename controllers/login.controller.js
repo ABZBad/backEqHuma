@@ -18,8 +18,7 @@ exports.obtenerAcceso = async (req, res) => {
     });
     //res.json(login);
   } catch (error) {
-    //res.status(500).json({ mensaje: 'Error al obtener acceso' ,error  });
-    res.status(500).send(´{"Error":"Sin acceso", "Valida usuario/password"});
+    res.status(500).json({ mensaje: 'Error al obtener acceso' ,error  });
   }
 };
 
