@@ -8,6 +8,7 @@ class Prospect {
 
   static async obtenerPorId(id) {
     const { rows } = await db.query('SELECT * FROM candidato WHERE id = $1', [id]);
+    console.log("salida obtenerPorId ---- $1 ", rows[0]);
     return rows[0];
   }
 

@@ -2,8 +2,8 @@ const db = require('../db');
 
 class Empresa {
   static async obtenerEmpresaID(id) {
-    const { rows } = await db.query('SELECT * FROM empresa WHERE id = $1',[id]);
-    
+    const { rows } = await db.query('SELECT * FROM empresa WHERE id = $1',[id] );
+       console.log("salida---- $1 ", rows[0]);
     return rows[0];
   }
 
