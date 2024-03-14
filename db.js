@@ -2,6 +2,7 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
   user: 'fl0user',
+  //user: 'postgres',
   //host: 'localhost',
   host: 'ep-steep-water-a5hm4bm8.us-east-2.aws.neon.fl0.io',
   database: 'eqHuma',
