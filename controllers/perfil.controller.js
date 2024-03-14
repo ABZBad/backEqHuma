@@ -17,5 +17,3 @@ exports.obtenerPorId = async (req, res) => {
     res.status(500).json({ mensaje: 'Error al obtener el perfil por ID' ,error });
   }
 };
-
-module.exports = P];
