@@ -5,7 +5,7 @@ exports.obtenerAcceso = async (req, res) => {
   try {
     //const login = await Login.obtenerAcceso(req.params.usuario,req.params.password);
 
-    return res.status(200).send({ 
+     res.status(200).send({ 
       "nombre":"Admin",
       "ID":'123456789',
       "IdtipoUsuario":"100",
