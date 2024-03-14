@@ -4,7 +4,9 @@ exports.obtenerEmpresaID = async (req, res) => {
       const empresa = await Empresa.obtenerEmpresaID(req.params.id);
       res.json(empresa);
     } catch (error) {
-      res.status(500).json({ mensaje: 'Error en exports.obtenerEmpresaID obtener la empresa ID ' +req.params.id ,error });
+      res.status(500).json({ mensaje: 'Error en '+
+                                      'exports.obtenerEmpresaID '+
+                                      'obtener la empresa ID ' + req.params.id ,error });
     }
   };
   
