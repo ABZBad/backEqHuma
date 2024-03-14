@@ -10,6 +10,9 @@ const pool = new Pool({
   // password: 'Admin2024',
   database: 'eqHuma',
   port: 5432,
+  ssl: {
+    rejectUnauthorized: false // Ignorar la verificación del certificado SSL
+  }
 });
 
 module.exports = pool;

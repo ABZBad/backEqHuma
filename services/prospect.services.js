@@ -17,9 +17,9 @@ class ProspectService {
     }
   }
 
-  static async crear(nombre, precio) {
+  static async crear(nombre, primerapp) {
     try {
-      return await Prospect.crear(nombre, precio);
+      return await Prospect.crear(nombre, primerapp);
     } catch (error) {
       throw new Error('Error al crear el prospect');
     }

@@ -3,6 +3,7 @@ const app = express();
 const prospectRoutes = require('./routes/prospect.routes');
 const loginRoutes = require('./routes/login.routes');
 const empresaRoutes = require('./routes/empresa.routes');
+const perfilRoutes = require('./routes/perfil.routes');
 const cors = require('cors');
 
 app.use(express.json());
@@ -13,6 +14,8 @@ app.use(cors({ origin: '*' }));
 app.use('/api/prospects', prospectRoutes);
 app.use('/api/login', loginRoutes);
 app.use('/api/empresa', empresaRoutes);
+app.use('/api/perfil', perfilRoutes);
+
 
 
 
