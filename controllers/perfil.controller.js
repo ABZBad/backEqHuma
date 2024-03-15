@@ -2,7 +2,7 @@ const Perfil = require('../models/perfil.model');
 
 exports.obtenerTodos = async (req, res) => {
   try {
-    const perfiles = await Peril.obtenerTodos();
+    const perfiles = await Perfil.obtenerTodos();
     res.json(perfiles);
   } catch (error) {
     res.status(500).json({ mensaje: 'Error al obtener los perfiles, controller/perfiles/obtenerTodos' });
