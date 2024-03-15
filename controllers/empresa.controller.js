@@ -27,3 +27,16 @@ exports.crear = async (req, res) => {
     res.status(500).json({ mensaje: 'Error al crear la empresa en controller/crear', error });
   }
 };
+
+exports.obtenerTodasEmpresas = async (req, res) => {
+  try {
+    const empresas = await Empresa.obtenerTodasEmpresas();
+    res.json(empresas);
+  } catch (error) {
+    res.status(500).json({
+      mensaje: 'Error en ' +
+        'exports.obtenerTodasEmpresas ' +
+        'obtener las empresas ', error
+    });
+  }
+};

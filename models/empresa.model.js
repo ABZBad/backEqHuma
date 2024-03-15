@@ -47,6 +47,22 @@ class Empresa {
     }
   }
 
+  static async obtenerTodasEmpresas() {
+    try {
+      const { rows } = await db.query('SELECT * FROM empresa');
+      console.log("SELECT * FROM empresa");
+      return rows;
+
+    } catch (error) {
+      res.status(500).json({
+        mensaje: 'Error en ' +
+          'exports.obtenerTodasEmpresas ' +
+          'obtener la empresa ID ' + req.params.id,
+        error
+      });
+    }
+  }
+  
 
 }
 module.exports = Empresa;
