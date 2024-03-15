@@ -8,15 +8,15 @@ class EmpresaService {
       throw new Error('Error al obtener empresa');
     }
   }
-  static async crear(nombreEmpresa, nombreComercial,
+  static async crear(id,nombreEmpresa, nombreComercial,
     giro,nombreContacto,
-    tipoContacto, correoContrato) {
+    tipoContacto, correoContacto) {
     try {
-      return await Empresa.crear(nombreEmpresa, nombreComercial,
+      return await Empresa.crear(id,nombreEmpresa, nombreComercial,
         giro,nombreContacto,
-        tipoContacto, correoContrato);
+        tipoContacto, correoContacto);
     } catch (error) {
-      throw new Error('Error al crear el empresa');
+      throw new Error('Error al crear el empresa en Servicio/crear');
     }
   }
 

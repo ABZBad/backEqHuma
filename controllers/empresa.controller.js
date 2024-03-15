@@ -15,15 +15,15 @@ exports.obtenerEmpresaID = async (req, res) => {
 
 exports.crear = async (req, res) => {
   try {
-    const { nombreEmpresa, nombreComercial,
+    const {id, nombreEmpresa, nombreComercial,
       giro, nombreContacto,
-      tipoContacto, correoContrato } = req.body;
+      tipoContacto, correoContacto } = req.body;
 
-    const nuevoEmpresa = await empresa.crear(nombreEmpresa, nombreComercial,
+    const nuevoEmpresa = await Empresa.crear(id,nombreEmpresa, nombreComercial,
       giro, nombreContacto,
-      tipoContacto, correoContrato);
+      tipoContacto, correoContacto);
     res.status(201).json(nuevoEmpresa);
   } catch (error) {
-    res.status(500).json({ mensaje: 'Error al crear la empresa' });
+    res.status(500).json({ mensaje: 'Error al crear la empresa en controller/crear', error });
   }
 };
