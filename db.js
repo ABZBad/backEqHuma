@@ -11,7 +11,7 @@ const pool = new Pool({
   database: 'eqHuma',
   port: 5432,
   ssl: {
-    rejectUnauthorized: false // Ignorar la verificación del certificado SSL
+    rejectUnauthorized: true // Ignorar la verificación del certificado SSL
   }
 });
 

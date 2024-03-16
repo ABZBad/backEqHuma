@@ -34,6 +34,14 @@ class Prospect {
     await db.query('DELETE FROM candidato WHERE id = $1', [id]);
     return { mensaje: 'candidato eliminado correctamente' };
   }
+
+  static async obtenerProspectosTodosPorEmpresa (id) {
+    const { rows } = await db.query('select * from  public.obtenerProspectosPorIDEmpresa($1)',[id]);
+    return rows;
+  }
+
+
+
 }
 
 module.exports = Prospect;

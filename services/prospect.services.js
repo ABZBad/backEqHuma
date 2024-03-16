@@ -40,6 +40,14 @@ class ProspectService {
       throw new Error('Error al eliminar el prospect');
     }
   }
+
+  static async obtenerTodosPorEmpresa(id) {
+    try {
+      return await Prospect.obtenerTodosPorEmpresa(id);
+    } catch (error) {
+      throw new Error('Error al lista de prospectos por empresa $1',[id]);
+    }
+  }
 }
 
 module.exports = ProspectService;

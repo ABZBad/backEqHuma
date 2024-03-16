@@ -8,4 +8,7 @@ router.post('/', prospectController.crear);
 router.put('/:id', prospectController.actualizar);
 router.delete('/:id', prospectController.eliminar);
 
+router.get('/obtenerProspectosTodosPorEmpresa/:id',prospectController.obtenerProspectosTodosPorEmpresa);
+
+
 module.exports = router;

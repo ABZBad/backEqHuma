@@ -16,8 +16,5 @@ app.use('/api/login', loginRoutes);
 app.use('/api/empresa', empresaRoutes);
 app.use('/api/perfil', perfilRoutes);
 
-
-
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
