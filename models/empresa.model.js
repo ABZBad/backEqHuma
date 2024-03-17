@@ -22,19 +22,6 @@ class Empresa {
     try {
       const strQuery = "select * from  public.agregarEmpresa(" +
         "'$1','$2' ,'$3', $4, $5, $6, $7)";
-      //   const strQuery = 'INSERT INTO public.empresa ' +
-      //  '(id, "nombreEmpresa", '+ 
-      //  ' "nombreComercial", "giro", '+ 
-      //  ' "nombreContacto",'+
-      //  ' "correoContacto")'+
-      //  " VALUES ("+
-      //           id+","+ 
-      //           "'"+nombreEmpresa+"',"+ 
-      //           "'"+nombreComercial+"',"+
-      //           "'"+giro+"',"+
-      //           "'"+nombreContacto+"',"+
-      //           "'"+correoContacto+"'"+
-      //           ") RETURNING * ";
       console.log(strQuery);
       const { rows } = await db.query("select * from  public.agregarEmpresa(" +
                                       "$1,$2 ,$3, $4, $5, $6, $7)", 
