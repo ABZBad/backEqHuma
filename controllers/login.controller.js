@@ -10,7 +10,7 @@ exports.obtenerAcceso = async (req, res) => {
       "ID":'123456789',
       "IdtipoUsuario":"100",
       "IdSucursal":"1",
-      "IdRol":"1",
+      "IdPerfil":"1",
       "IdPlan":"10",
       "IdZona":"10",
       "tipoDeSucursal" :"Empresa",

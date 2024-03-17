@@ -49,8 +49,8 @@ class Empresa {
 
   static async obtenerTodasEmpresas() {
     try {
-      const { rows } = await db.query('SELECT * FROM empresa');
-      console.log("SELECT * FROM empresa");
+      const { rows } = await db.query('SELECT * FROM public.obtenerEmpresas()');
+      console.log("SELECT * FROM obtenerEmpresas");
       return rows;
 
     } catch (error) {
