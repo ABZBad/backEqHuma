@@ -17,25 +17,30 @@ class Empresa {
     }
   }
 
-  static async crear(id, nombreEmpresa, nombreComercial,
-    giro, nombreContacto,
-    tipoContacto, correoContacto,) {
+  static async crear(rfc, nombreEmpresa, nombreComercial,
+    giro, nombreContacto, telefonoContacto, correoContacto) {
     try {
-      const strQuery = 'INSERT INTO public.empresa ' +
-     '(id, "nombreEmpresa", '+ 
-     ' "nombreComercial", "giro", '+ 
-     ' "nombreContacto",'+
-     ' "correoContacto")'+
-     " VALUES ("+
-              id+","+ 
-              "'"+nombreEmpresa+"',"+ 
-              "'"+nombreComercial+"',"+
-              "'"+giro+"',"+
-              "'"+nombreContacto+"',"+
-              "'"+correoContacto+"'"+
-              ") RETURNING * ";
+      const strQuery = "select * from  public.agregarEmpresa(" +
+        "'$1','$2' ,'$3', $4, $5, $6, $7)";
+      //   const strQuery = 'INSERT INTO public.empresa ' +
+      //  '(id, "nombreEmpresa", '+ 
+      //  ' "nombreComercial", "giro", '+ 
+      //  ' "nombreContacto",'+
+      //  ' "correoContacto")'+
+      //  " VALUES ("+
+      //           id+","+ 
+      //           "'"+nombreEmpresa+"',"+ 
+      //           "'"+nombreComercial+"',"+
+      //           "'"+giro+"',"+
+      //           "'"+nombreContacto+"',"+
+      //           "'"+correoContacto+"'"+
+      //           ") RETURNING * ";
       console.log(strQuery);
-      const { rows } = await db.query(strQuery);
+      const { rows } = await db.query("select * from  public.agregarEmpresa(" +
+                                      "$1,$2 ,$3, $4, $5, $6, $7)", 
+                      [rfc, nombreEmpresa, nombreComercial,
+                      giro, nombreContacto, telefonoContacto,
+                    correoContacto]);
       return rows[0];
     } catch (error) {
       res.status(500).json({
@@ -62,7 +67,7 @@ class Empresa {
       });
     }
   }
-  
+
 
 }
 module.exports = Empresa;
