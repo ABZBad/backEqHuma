@@ -1,4 +1,4 @@
-const Prospect = require('../models/prospect.model');
+const Prospect = require('../services/prospect.services');
 
 exports.obtenerTodos = async (req, res) => {
   try {
@@ -16,17 +16,21 @@ exports.obtenerPorId = async (req, res) => {
 
     //res.json(prospect);
   } catch (error) {
-    res.status(500).json({ mensaje: 'Error al obtener el prospecto por ID' ,error });
+    res.status(500).json({ mensaje: 'Error al obtener el prospecto por ID', error });
   }
 };
 
 exports.crear = async (req, res) => {
   try {
-    // const { nombre, primerapp } = req.body;
-    // const nuevoProspect= await prospect.crear(nombre, primerapp);
-    // console.log(nuevoProspect);
-    // res.status(201).json(nuevoProspect);
-    res.status(201);
+    const { nombre, primerapp } = req.body;
+    const nuevoProspect = await Prospect.crear(nombre, primerapp);
+    console.log(nuevoProspect);
+    res.status(201).json({
+      status: "ok",
+      message: 'El prospecto ${nombre} ha sido creado',
+      data: nuevoProspect
+    });
+
   } catch (error) {
     res.status(500).json({ mensaje: 'Error al crear el rospecto' });
   }

@@ -13,7 +13,7 @@ app.use(cors());
 
 app.use(cors({ origin: '*' }));
 
-app.use('/api/prospects', prospectRoutes);
+app.use('/api/prospect', prospectRoutes);
 app.use('/api/login', loginRoutes);
 app.use('/api/empresa', empresaRoutes);
 app.use('/api/perfil', perfilRoutes);

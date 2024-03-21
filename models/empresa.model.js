@@ -6,14 +6,16 @@ class Empresa {
       const { rows } = await db.query('SELECT * FROM empresa WHERE id = $1', [id]);
       console.log("salida---- $1 ", rows[0]);
       return rows[0];
-
     } catch (error) {
-      res.status(500).json({
-        mensaje: 'Error en ' +
-          'exports.obtenerEmpresaID ' +
-          'obtener la empresa ID ' + req.params.id,
-        error
-      });
+      console.log(`Error al buscar la empresa por ID: ${error}`);
+      throw error;
+
+      // res.status(500).json({
+      //   mensaje: 'Error en ' +
+      //     'models.obtenerEmpresaID ' +
+      //     'obtener la empresa ID ' + req.params.id,
+      //   error
+      // });
     }
   }
 

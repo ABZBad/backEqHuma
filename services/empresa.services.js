@@ -3,17 +3,19 @@ const Empresa = require('../models/empresa.model');
 class EmpresaService {
   static async obtenerEmpresaID(id) {
     try {
-      return await Empresa.obtenerEmpresaID(id);
+      const empresas = await Empresa.obtenerEmpresaID(id);
+    console.log(empresas);
+       return empresas[0];
     } catch (error) {
       throw new Error('Error al obtener empresa');
     }
   }
-  static async crear(id,
+  static async crear(rfc,
     nombreEmpresa, nombreComercial,
     giro, nombreContacto,
     tipoContacto, correoContacto) {
     try {
-      return await Empresa.crear(id,nombreEmpresa, nombreComercial,
+      return await Empresa.crear(rfc,nombreEmpresa, nombreComercial,
         giro,nombreContacto,
         tipoContacto, correoContacto);
     } catch (error) {
