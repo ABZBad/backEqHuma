@@ -17,11 +17,42 @@ class ProspectService {
     }
   }
 
-  static async crear(nombre, primerapp) {
-    try {
-      return await Prospect.crear(nombre, primerapp);
+  static async crear(nombre , primerApp ,segundoApp ,correo ,
+                    telefono ,idEmpresa ,idSucursal ,idUsuario,
+                    nss,curp,listaServicios)
+  {
+    try {   
+      // let prospectNuevo = new Prospect({
+      //   nombre : nombre,
+      //   primerApp:primerApp,
+      //   segundoApp:segundoApp  ,
+      //   correo : correo ,
+      //   telefono : telefono ,
+      //   fecha_nacimiento : fecha_nacimiento ,
+      //   genero :genero ,
+      //   idEmpresa : idEmpresa ,
+      //   idSucursal : idSucursal ,
+      //   nss : nss ,
+      //   CURP : curp ,
+      //   listaServicios : listaServicios
+      // });
+      // console.log(JSON.stringify(prospectNuevo));
+      // prospectNuevo =await prospectNuevo.crear();
+      // return prospectNuevo;
+      //console.log(JSON.stringify(listaServicios));
+      
+      const jsonData= listaServicios;
+      
+      const arrayServicios = jsonData.map(obj => [obj.idEmpresa, obj.idCandidato, obj.idServicio]);
+     // console.log(arrayServicios);
+
+      return await Prospect.crear(nombre , primerApp ,
+                      segundoApp  ,correo ,
+                      telefono ,idEmpresa ,
+                      idSucursal ,idUsuario,nss ,
+                      curp,arrayServicios); 
     } catch (error) {
-      throw new Error('Error al crear el prospect');
+      throw new Error('Error al crear el prospecto, servicio: '+error);
     }
   }
 
@@ -41,9 +72,9 @@ class ProspectService {
     }
   }
 
-  static async obtenerTodosPorEmpresa(id) {
+  static async obtenerProspectosTodosPorEmpresa(id) {
     try {
-      return await Prospect.obtenerTodosPorEmpresa(id);
+      return await Prospect.obtenerProspectosTodosPorEmpresa(id);
     } catch (error) {
       throw new Error('Error al lista de prospectos por empresa $1',[id]);
     }

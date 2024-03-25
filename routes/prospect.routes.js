@@ -1,14 +1,14 @@
 const express = require('express');
-const router = express.Router();
+const routerProspect = express.Router();
 const prospectController = require('../controllers/prospect.controller');
 
-router.get('/', prospectController.obtenerTodos);
-router.get('/:id', prospectController.obtenerPorId);
-router.post('/', prospectController.crear);
-router.put('/:id', prospectController.actualizar);
-router.delete('/:id', prospectController.eliminar);
+routerProspect.get('/', prospectController.obtenerTodos);
+routerProspect.get('/:id', prospectController.obtenerPorId);
+routerProspect.post('/', prospectController.crear);
+routerProspect.put('/:id', prospectController.actualizar);
+routerProspect.delete('/:id', prospectController.eliminar);
 
-router.get('/obtenerProspectosTodosPorEmpresa/:id',prospectController.obtenerProspectosTodosPorEmpresa);
+routerProspect.get('/obtenerProspectosTodosPorEmpresa/:id',prospectController.obtenerProspectosTodosPorEmpresa);
 
 
-module.exports = router;
+module.exports = routerProspect;
