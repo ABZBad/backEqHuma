@@ -12,6 +12,7 @@ exports.obtenerEmpresaID = async (req, res) => {
       //    return res.status(100).json({msg: 'No se encontró la empresa con el id ingresado'});
       // }
       const empresa = await Empresa.obtenerEmpresaID(req.params.id);
+      console.log(empresa);
       res.status(200).send({
          message: 'Consulta exitosa',
          data: empresa,
