@@ -4,7 +4,7 @@ class Empresa {
   static async obtenerEmpresaID(id) {
     try {
       const { rows } = await db.query('SELECT * FROM empresa WHERE id = $1', [id]);
-      console.log("salida---- $1 ", rows[0]);
+      console.log("salida---", rows);
       return rows[0];
     } catch (error) {
       console.log(`Error al buscar la empresa por ID: ${error}`);
