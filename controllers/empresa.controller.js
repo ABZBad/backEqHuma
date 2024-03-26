@@ -15,7 +15,8 @@ exports.obtenerEmpresaID = async (req, res) => {
       console.log(empresa);
       res.status(200).send({
          message: 'Consulta exitosa',
-         data: empresa,
+         status: "Ok",
+         data: empresa
       });
    } catch (error) {
       res.status(500).json(error);
