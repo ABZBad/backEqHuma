@@ -2,11 +2,13 @@ const Login = require('../models/login.model');
 
 class LoginService {
 
-  static async obtenerPorId(usuario,password) {
+  static async obtenerAcceso(usuario,password) {
     try {
-      return await Login.obtenerAcceso(usuario,password);
+      const loginResp =await  Login.obtenerAcceso(usuario,password);
+      
+      return  loginResp;
     } catch (error) {
-      throw new Error('Error al obtener el acceso');
+      throw new Error('Error al obtener el acceso'+error);
     }
   }
 

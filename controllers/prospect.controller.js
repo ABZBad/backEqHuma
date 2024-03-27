@@ -41,7 +41,7 @@ exports.crear = async (req, res) => {
 
 
     console.log(nuevoProspect);
-    res.status(201).json({
+    res.status(200).json({
       status: "ok",
       message: 'El prospecto ${nombre} ha sido creado',
       data: nuevoProspect
