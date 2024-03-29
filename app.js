@@ -8,6 +8,9 @@ const menuRoutes = require('./routes/menu.routes');
 const servicioRoutes = require('./routes/servicio.routes');
 const direccionRoutes = require('./routes/direccion.routes');
 const referenciaRoutes = require('./routes/referencia.routes');
+const documentoRoutes = require('./routes/documento.routes');
+
+
 
 const cors = require('cors');
 
@@ -24,6 +27,7 @@ app.use('/api/menu', menuRoutes);
 app.use('/api/servicio', servicioRoutes);
 app.use('/api/direccion', direccionRoutes);
 app.use('/api/referencia', referenciaRoutes);
+app.use('/api/documento', documentoRoutes);
 
 
 const PORT = process.env.PORT || 3000;
