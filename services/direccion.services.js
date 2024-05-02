@@ -17,7 +17,7 @@ class DireccionService {
         }
     }
 
-    static async obtenerDomiciliosID(id) {
+    static async obtenerDomiciliosI(id) {
         try {
             return await Direccion.obtenerDomiciliosID(id);
         } catch (error) {
