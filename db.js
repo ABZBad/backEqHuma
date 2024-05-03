@@ -1,19 +1,15 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
 const pool = new Pool({
-  user: 'postgres',
-  host: 'viaduct.proxy.rlwy.net',
-  password: 'VtDIJqpUpGKpPHPBFWeFuRcbaYKkPnDW',
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  password: process.env.DB_PASSWORD,
   ssl: {
     rejectUnauthorized: false // Ignorar la verificación del certificado SSL
   },
-  /// ambiente local
-  // user: 'postgres',
-  // host: 'localhost',
-  // password: 'Admin2024',
-
-  database: 'railway',
-  port: 22148,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT,
   logging: true,
   
 });
